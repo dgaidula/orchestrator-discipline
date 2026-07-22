@@ -1,0 +1,13 @@
+{
+  "name": "orchestrator-discipline",
+  "owner": {
+    "name": "Dan Gaidula"
+  },
+  "plugins": [
+    {
+      "name": "orchestrator-discipline",
+      "source": "./",
+      "description": "Delegation and communication discipline for orchestrating subagents: when to fan out, how to brief agents, how to treat their reports, and how to report back readably."
+    }
+  ]
+}
