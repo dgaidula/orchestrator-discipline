@@ -45,6 +45,19 @@ One skill, six sections:
 | **Reporting back** | Lead with the outcome; readable beats concise; the final message stands alone; silence between tool calls; every claim grounded in a tool result |
 | **Ending the turn** | If your last paragraph is a promise about work not yet done, do the work |
 
+## Token footprint
+
+Skills pay rent in context. This one is **~130 tokens always-on** (only the
+description loads until the skill fires) and **~1.6k when invoked** —
+measured with `claude plugin details orchestrator-discipline`; re-run it
+yourself rather than taking the README's word, since the numbers drift as
+the skill evolves.
+
+That's a design constraint, not an accident. A discipline skill that dumps
+thousands of repetitive tokens into every session is refuting itself — the
+same editing rule the skill teaches ("drop what doesn't change what the
+reader does next") is why it's a hundred lines and not nine hundred.
+
 ## Install
 
 As a plugin (recommended — one command):
