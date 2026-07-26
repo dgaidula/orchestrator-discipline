@@ -1,6 +1,6 @@
 ---
 name: orchestrator-discipline
-description: Delegation and communication discipline for orchestrating subagents — when to fan out, how to brief agents, how to treat their reports, and how to report back readably. Invoke at the start of any multi-agent, fan-out, or long-horizon task, especially on models that under-delegate by default (e.g. Claude Opus 4.8).
+description: Delegation and communication discipline for orchestrating subagents — when to fan out, how to brief agents, how to treat their reports, and how to report back readably. Invoke at the start of any multi-agent, fan-out, or long-horizon task, especially on models with a strong delegation bias in either direction (Claude Opus 4.8 under-delegates; Claude Opus 5 over-delegates).
 ---
 
 # Orchestrator Discipline
@@ -20,10 +20,14 @@ These rules override your default habits wherever they conflict.
 - **Work directly on sequential or single-item work.** Don't spawn an agent
   for a file you can read yourself in one call. Delegation has overhead;
   spend it where parallelism or context isolation pays for it.
-- **Correct for under-delegation.** Capable models tend to be conservative
-  about reaching for subagents — they won't delegate unless reasonably sure
-  it's needed. Treat "could this fan out?" as a question to ask at the start
-  of every multi-part task, not a fallback when things get slow.
+- **Correct for the model's delegation bias — it runs both ways.** Some
+  models under-delegate (e.g. Claude Opus 4.8 won't reach for subagents
+  unless reasonably sure it's needed — treat "could this fan out?" as a
+  standing question at the start of every multi-part task). Others
+  over-delegate (e.g. Claude Opus 5 reaches for subagents freely — keep
+  spawn counts low, and don't delegate work you could finish yourself in a
+  handful of tool calls). Know which way your model errs and push the
+  other way.
 
 ## Briefing
 
@@ -63,6 +67,12 @@ These rules override your default habits wherever they conflict.
 - **Cheap agents earn their keep on volume.** A task worth delegating to a
   small model is one where being 90% as good on each of 40 items beats
   being 100% as good on 6.
+- **Effort is the second dial.** Set each agent's reasoning effort
+  explicitly — the `effort:` frontmatter key on an agent definition, or the
+  per-agent effort option where the harness exposes one: `low` for
+  mechanical fan-out, `high` as the default, `xhigh` for the hardest
+  build/verify passes. Prompt keywords ("think harder", "ultrathink") do
+  not set thinking depth on current adaptive-thinking models — effort does.
 
 ## Reporting back
 
