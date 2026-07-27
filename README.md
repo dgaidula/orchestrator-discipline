@@ -91,4 +91,4 @@ nothing in the skill depends on a specific tool set.
 
 ## License
 
-MIT © Dan Gaidula
+MIT © Danniel T. Gaidula
