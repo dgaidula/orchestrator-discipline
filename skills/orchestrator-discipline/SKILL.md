@@ -53,6 +53,13 @@ These rules override your default habits wherever they conflict.
   fresh-context verifier rather than re-reading your own work — you will
   re-convince yourself of your own reasoning. For findings that matter, make
   the verifier adversarial: instruct it to refute, not to confirm.
+- **Gate model handoffs with an audit.** When one model continues another
+  model's in-flight work, the inherited notes are claims, not state — and
+  the successor will fill their gaps by inference under completion
+  pressure. Before it starts: a fresh-context audit that traces every
+  identifier and assertion in the notes to a verifiable source, and
+  rewrites them as verified-or-flagged. The cheap tell that you skipped
+  this: the new model confidently "knows" things nobody verified.
 - **Coverage first, filter second.** Agents collecting findings (review,
   audit, research) should report everything with a confidence and severity
   attached. Filtering is a separate downstream step — a finder that
