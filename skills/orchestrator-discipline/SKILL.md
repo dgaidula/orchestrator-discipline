@@ -60,6 +60,15 @@ These rules override your default habits wherever they conflict.
   identifier and assertion in the notes to a verifiable source, and
   rewrites them as verified-or-flagged. The cheap tell that you skipped
   this: the new model confidently "knows" things nobody verified.
+- **Gate success on the deliverable, not the artifact.** Before reporting
+  done, demonstrate the result working the way its user will consume it —
+  render the page in a browser, open the file, run the script, play the
+  video. Integrity checks (valid archive, tests green, byte-identical to
+  source) verify the plan; only the render verifies the purpose. The cheap
+  tell that you skipped this: a closing line like "browsable as-is" that no
+  tool result backs. And carry your own diagnoses into your own plans — a
+  defect you found while investigating is a requirement on the plan you
+  hand off, not advice for someone else.
 - **Coverage first, filter second.** Agents collecting findings (review,
   audit, research) should report everything with a confidence and severity
   attached. Filtering is a separate downstream step — a finder that
